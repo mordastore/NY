@@ -7,10 +7,10 @@ document.getElementById('openBtn').addEventListener('click', function () {
   fireConfetti();
 });
 
-// Эмодзи-дождь
+// Эмодзи-дождь (новогодние)
 function createEmojiRain() {
   const container = document.querySelector('.emoji-container');
-  const emojis = ['🐶', '🐱', '🐾'];
+  const emojis = ['🎄', '❄️', '🎁', '✨', '☃️'];
   const emoji = document.createElement('div');
   emoji.classList.add('emoji');
   emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
@@ -33,7 +33,7 @@ function fireConfetti() {
   const count = 120;
   const centerX = canvas.width / 2;
   const centerY = canvas.height / 2;
-  const colors = ['#ff69b4', '#ffd1e3', '#ffe3f3', '#ffffff', '#f871a0'];
+  const colors = ['#ff0000', '#ffffff', '#66cc66', '#ffcc00'];
 
   for (let i = 0; i < count; i++) {
     const angle = Math.random() * 2 * Math.PI;
@@ -70,3 +70,20 @@ function fireConfetti() {
 
   update();
 }
+
+// ❄️ Снежинки
+const snowContainer = document.createElement('div');
+snowContainer.classList.add('snow-container');
+document.body.appendChild(snowContainer);
+
+function createSnowflake() {
+  const snowflake = document.createElement('div');
+  snowflake.classList.add('snowflake');
+  snowflake.textContent = '❄️';
+  snowflake.style.left = Math.random() * 100 + 'vw';
+  snowflake.style.animationDuration = 3 + Math.random() * 5 + 's';
+  snowflake.style.fontSize = 12 + Math.random() * 24 + 'px';
+  snowContainer.appendChild(snowflake);
+  setTimeout(() => snowflake.remove(), 8000);
+}
+setInterval(createSnowflake, 250);
