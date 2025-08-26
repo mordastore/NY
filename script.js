@@ -81,9 +81,12 @@ function createSnowflake() {
   snowflake.classList.add('snowflake');
   snowflake.textContent = '❄️';
   snowflake.style.left = Math.random() * 100 + 'vw';
-  snowflake.style.animationDuration = 3 + Math.random() * 5 + 's';
+  snowflake.style.animationDuration = 5 + Math.random() * 5 + 's';
   snowflake.style.fontSize = 12 + Math.random() * 24 + 'px';
+  snowflake.style.opacity = Math.random();
+  snowflake.style.animationDelay = Math.random() * 3 + 's';
+  snowflake.style.setProperty('--drift', (Math.random() * 20 - 10) + 'px');
   snowContainer.appendChild(snowflake);
-  setTimeout(() => snowflake.remove(), 8000);
+  setTimeout(() => snowflake.remove(), 10000);
 }
-setInterval(createSnowflake, 250);
+
